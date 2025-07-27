@@ -50,10 +50,13 @@ const toBase64 = file => new Promise((resolve, reject) => {
           const formData = new FormData();
           formData.append("image", imageFile);
 
-          const response = await fetch("http://localhost:8080/api/caption", {
+          const response = await fetch(`https://chrono-weave-backend.onrender.com/api/caption`, {
             method: "POST",
             body: formData,
-          });
+            });
+
+
+
 
           if (!response.ok) {
             throw new Error(`API request failed with status ${response.status}`);
